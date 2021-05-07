@@ -1,3 +1,6 @@
+/**
+ * Axios & CSRF Check
+ */
 window.axios = require("axios")
 window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest"
 let token = document.head.querySelector('meta[name="csrf-token"]')
@@ -7,18 +10,18 @@ if (token) {
     alert('CSRF Token missing!')
 }
 
-// window.Vue = require("vue").default
-// window.App = require('./Vue/Layouts/App').default
-// const files = require.context("./Vue", true, /\.vue$/i)
-// files.keys().map(key =>
-//     Vue.component(key.split("/").pop().split(".")[0], files(key).default)
-// )
-
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
-
+/**
+ * Vue
+ */
 import Vue from 'vue'
 import App from '@/Layouts/App'
+
+// require all components
+const components = require.context("@/Components", true, /\.vue$/i)
+components.keys().map(key =>
+    Vue.component(key.split("/").pop().split(".")[0], components(key).default)
+)
+
 const app = new Vue({
     el: "#app",
     render: h => h(App),
