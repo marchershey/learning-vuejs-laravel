@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 
-<body>
+<body class="bg-gray-900">
     <div id="app"></div>
 </body>
 
