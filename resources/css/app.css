@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    .form-label {
+        @apply text-sm font-semibold;
+    }
+    .ring-on-focus {
+        @apply focus:outline-none focus-visible:ring focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-800;
+    }
+
+    .ring-on-checkbox:focus-within .checkbox {
+        @apply ring ring-gray-500 ring-offset-2 ring-offset-gray-800;
+    }
+}

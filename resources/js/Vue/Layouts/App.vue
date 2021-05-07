@@ -107,7 +107,9 @@
                         <base-input label="Name" v-model="name"></base-input>
                         <base-input label="Date of birth" type="date" v-model="dateOfBirth"></base-input>
                         <base-select :options="availablePlans" label="Select a plan" v-model="plan"></base-select>
-                        <base-checkbox label="Subscript to newsletter" v-model="subscribeToNewsletter"></base-checkbox>
+                        <base-checkbox v-model="subscribeToNewsletter"></base-checkbox>
+                        <base-checkbox label="Subscribe to the Newsletter" v-model="subscribeToNewsletter"></base-checkbox>
+                        <base-checkbox label="Subscribe to the Newsletter" subtext="Enable this feature to get our newsletter via email" v-model="subscribeToNewsletter"></base-checkbox>
                         <div>
                             <div>
                                 <span>Name:</span>
@@ -134,13 +136,7 @@
 </template>
 
 <script>
-import BasePanel from "@/Components/BasePanel";
-import BaseButton from "@/Components/BaseButton";
-import BaseInput from "@/Components/BaseInput";
-import BaseSelect from "@/Components/BaseSelect";
-import BaseCheckbox from "@/Components/BaseCheckbox";
 export default {
-    components: { BasePanel, BaseButton, BaseInput, BaseSelect, BaseCheckbox },
     data() {
         return {
             name: "foobar",
