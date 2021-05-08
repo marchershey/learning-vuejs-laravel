@@ -32,6 +32,7 @@ module.exports = {
             current: 'currentColor',
             white: colors.white,
             gray: colors.gray,
+            blue: colors.blue,
 
         },
     },

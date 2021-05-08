@@ -10,7 +10,8 @@ mix.js('resources/js/app.js', 'public/js').vue().postCss('resources/css/app.css'
 mix.webpackConfig({
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, 'resources/js/Vue')
+            '@': path.resolve(__dirname, 'resources/js/Vue'),
+            '@Router$': path.resolve(__dirname, 'resources/js/Vue/Router'),
         }
     }
 })
@@ -20,6 +21,23 @@ if (mix.inProduction()) {
 } else {
     mix.sourceMaps()
 }
+
+// testing on local network
+const url = process.env.APP_LOCAL_IP // get local ip of server
+mix.webpackConfig({
+    devServer: {
+        proxy: {
+            '*': 'http://localhost:8000'
+        }
+    }
+})
+
+mix.options({
+    hmrOptions: {
+        host: url,
+        port: 8000
+    }
+})
 
 // temporary fix 
 // src: https://github.com/JeffreyWay/laravel-mix/issues/2964#issuecomment-834213890
