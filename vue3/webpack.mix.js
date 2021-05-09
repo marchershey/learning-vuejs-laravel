@@ -1,5 +1,6 @@
 const mix = require('laravel-mix')
 
+
 mix.disableNotifications()
 
 mix.js('resources/js/app.js', 'public/js')
@@ -13,22 +14,26 @@ mix.js('resources/js/app.js', 'public/js')
 
 if (mix.inProduction()) {
     mix.version()
+} else {
+    mix.sourceMaps()
 }
 
+// To allow HMR to work on devices on the local network,
+// the following config and options need to be set.
 
-// local network testing
-const url = process.env.APP_LOCAL_IP // get local ip of server
+// This sets your `mix()` assets to `http://localhost:8000` (to work with `php artisan serve`)
 mix.webpackConfig({
     devServer: {
         proxy: {
             '*': 'http://localhost:8000'
         }
-    }
+    },
 })
 
+// This sets your HMR host and port to the device running `php artisan serve`
 mix.options({
     hmrOptions: {
-        host: url,
-        port: 8000
+        host: '10.0.0.31', // set this to the local ip address (192.168.0.**) of whatever device is running `php artisan serve`
+        port: 8000 // set this to which port `php artisan serve` is using.
     }
 })

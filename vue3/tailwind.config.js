@@ -1,26 +1,45 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors')
 
 module.exports = {
-    purge: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-        './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
-        './resources/js/**/*.vue',
-    ],
-
+    mode: 'jit',
+    darkMode: false, // or 'media' or 'class'
+    purge: {
+        enabled: false,
+        mode: 'all',
+        preserveHtmlElements: true,
+        content: [
+            './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+            './storage/framework/views/*.php',
+            './resources/views/**/*.blade.php',
+            './resources/js/**/*.vue',
+        ],
+        options: {
+            keyframes: true,
+        },
+    },
     theme: {
-        extend: {
-            fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+        colors: {
+            base: {
+                primary: colors.orange[600],
+                background: colors.gray[900],
+                panel: colors.gray[800],
+                text: colors.gray[300],
+                muted: colors.gray[500],
+                success: colors.green[600],
+                danger: colors.red[600],
             },
+            transparent: 'transparent',
+            current: 'currentColor',
+            white: colors.white,
+            gray: colors.gray,
+            blue: colors.blue,
+
         },
     },
-
     variants: {
-        extend: {
-            opacity: ['disabled'],
-        },
+        extend: {},
     },
-
-    plugins: [require('@tailwindcss/forms')],
-};
+    plugins: [
+        require('@tailwindcss/forms'),
+    ],
+}
