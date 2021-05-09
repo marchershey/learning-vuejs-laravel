@@ -13,7 +13,7 @@
                         <!-- Navigation -->
                         <div class="hidden w-full space-x-2 lg:flex">
                             <div v-for="item in menu" :key="item.name" class="relative px-3 py-2" @mouseenter="item.open = true" @mouseleave="item.open = false">
-                                <router-link :to="item.link" active-class="text-white" class="font-medium text-gray-400 cursor-pointer hover:text-white">{{ item.name }}</router-link>
+                                <router-link :to="item.link" active-class="text-white" class="font-semibold text-gray-400 cursor-pointer hover:text-white">{{ item.name }}</router-link>
                                 <div v-if="item.submenu && item.open" class="absolute left-0 w-40 px-4 py-2 mt-2 text-sm font-normal text-gray-400 origin-top-left bg-gray-800 rounded-md shadow-lg ring-1 ring-gray-700 focus:outline-none">
                                     <div v-for="subitem in item.submenu" :key="subitem.name">
                                         <router-link :to="subitem.link" exact-active-class="text-white" class="block py-1.5 hover:text-white">{{ subitem.name }}</router-link>
@@ -74,25 +74,6 @@
 <script>
 import TheLogo from "@/Components/App/TheLogo.vue";
 const menu = [
-    {
-        name: "Discover",
-        open: false,
-        link: "/discover",
-        submenu: [
-            {
-                name: "What's Trending",
-                link: "/discover"
-            },
-            {
-                name: "Discover Movies",
-                link: "/discover/movies"
-            },
-            {
-                name: "Discover TV Shows",
-                link: "/discover/tv"
-            }
-        ]
-    },
     {
         name: "Movies",
         open: false,
@@ -178,13 +159,7 @@ const menu = [
     {
         name: "Queue",
         open: false,
-        link: "/queue",
-        submenu: [
-            {
-                name: "View the queue",
-                link: "/queue"
-            }
-        ]
+        link: "/queue"
     }
 ];
 export default {

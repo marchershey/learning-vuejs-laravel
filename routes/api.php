@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('tmdb')->group(function () {
+    Route::get('test', function () {
+        return ['test' => 'test1'];
+    });
 });
+// Route::middleware('auth:api')->get('/tmdb', function (Request $request) {
+//     return $request->user();
+// });

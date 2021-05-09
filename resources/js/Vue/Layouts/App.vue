@@ -1,8 +1,10 @@
 <template>
     <div class="flex flex-col h-screen">
         <the-navbar></the-navbar>
-        <div class="w-full p-4 mx-auto max-w-7xl ios-padding-x">
-            <router-view></router-view>
+        <div class="overflow-y-auto">
+            <div class="w-full h-full p-4 mx-auto max-w-7xl ios-padding-x">
+                <router-view></router-view>
+            </div>
         </div>
     </div>
 </template>
