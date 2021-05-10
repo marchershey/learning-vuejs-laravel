@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/search', [App\Http\Controllers\SearchController::class, 'search'])->name('search');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

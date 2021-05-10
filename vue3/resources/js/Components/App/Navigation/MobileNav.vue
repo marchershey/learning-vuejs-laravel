@@ -2,15 +2,15 @@
     <div>
         <button @click="open = !open" type="button" class="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
             <span class="sr-only">Open main menu</span>
-            <svg class="block w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <svg v-if="!open" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
-            <svg class="hidden w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <svg v-if="open" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
-        <div class="absolute inset-0 p-2 mt-16" v-if="open">
-            <div class="py-2 text-lg text-gray-200 bg-gray-800 rounded">
+        <div class="absolute inset-0 z-10 p-2 mt-16 bg-black bg-opacity-75" v-if="open" v-on:click.self="open = false">
+            <div class="py-2 text-lg text-gray-200 bg-gray-800 rounded shadow-xl">
                 <div v-for="item in navigation" :key="item.name" class="px-4 py-2" aria-label="Sidebar">
                     <div @click="item.open = !item.open" class="flex justify-between">
                         <div v-text="item.name" class="font-semibold"></div>

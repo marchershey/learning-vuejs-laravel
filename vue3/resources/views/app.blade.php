@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     <!-- Scripts -->
-    @routes
     <script src="{{ mix('js/app.js') }}" defer></script>
+    @routes
 </head>
 
 <body class="font-sans antialiased text-gray-400 bg-gray-900">

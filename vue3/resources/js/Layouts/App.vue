@@ -2,8 +2,10 @@
     <div class="flex flex-col h-screen">
         <the-navbar></the-navbar>
         <div class="overflow-y-auto">
-            <div class="w-full h-full p-4 mx-auto max-w-7xl ios-padding-x">
-                <slot />
+            <div class="w-full h-full mx-auto max-w-7xl ios-padding-x">
+                <div class="py-6 sm:py-10">
+                    <slot />
+                </div>
             </div>
         </div>
     </div>

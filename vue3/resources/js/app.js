@@ -33,3 +33,5 @@ import { Inertia } from '@inertiajs/inertia'
 Inertia.on('navigate', (event) => {
     window.pathname = window.location.pathname
 })
+
+axios.defaults.headers.common['Accept'] = 'Application/json'

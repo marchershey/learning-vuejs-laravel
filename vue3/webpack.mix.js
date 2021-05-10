@@ -15,7 +15,7 @@ mix.js('resources/js/app.js', 'public/js')
 if (mix.inProduction()) {
     mix.version()
 } else {
-    mix.sourceMaps()
+    // mix.sourceMaps()
 }
 
 // To allow HMR to work on devices on the local network,

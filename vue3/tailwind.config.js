@@ -31,6 +31,7 @@ module.exports = {
             transparent: 'transparent',
             current: 'currentColor',
             white: colors.white,
+            black: colors.black,
             gray: colors.gray,
             blue: colors.blue,
 
@@ -41,5 +42,6 @@ module.exports = {
     },
     plugins: [
         require('@tailwindcss/forms'),
+        require('@tailwindcss/line-clamp'),
     ],
 }
