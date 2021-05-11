@@ -50,7 +50,6 @@ class Handler extends ExceptionHandler
     {
         $response = parent::render($request, $e);
 
-
         if ((config('app.env') != 'local') && in_array($response->status(), [500, 503, 404, 403])) {
             return Inertia::render('Error', ['status' => $response->status()])
                 ->toResponse($request)
@@ -60,7 +59,6 @@ class Handler extends ExceptionHandler
                 'message' => 'The page expired, please try again.',
             ]);
         }
-
         return $response;
     }
 }

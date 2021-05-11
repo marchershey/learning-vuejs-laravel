@@ -21,4 +21,16 @@
     .scrollbar::-webkit-scrollbar-thumb:active {
         background: #ea580c;
     }
+
+    /* Hide the scrollbar */
+    .no-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+        /* scroll-behavior: smooth; */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
 }

@@ -18,6 +18,7 @@ use Inertia\Inertia;
 Route::redirect('/', '/home');
 
 Route::get('/home', [App\Http\Controllers\Pages\HomeController::class, 'view'])->name('home');
+Route::get('/search', [App\Http\Controllers\Pages\SearchController::class, 'view'])->name('search');
 
 // Route::get('/home', function () {
 //     $test =  'test';

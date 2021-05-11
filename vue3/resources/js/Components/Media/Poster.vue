@@ -1,6 +1,6 @@
 <template>
-    <div class="inline-block align-top">
-        <div class="w-36 sm:w-36 md:w-44 xl:w-52">
+    <div class="align-top" :class="{ 'inline-block': !size }">
+        <div v-bind:class="[size ? size : 'w-36 sm:w-36 md:w-44 xl:w-52']">
             <div class="relative overflow-hidden transition duration-300 bg-gray-700 bg-cover rounded shadow outline-none cursor-default transform-gpu ring-1 ring-gray-700" role="link" tabindex="0" style="padding-bottom: 150%" :class="{ 'scale-110': open }" @mouseenter="open = true" @mouseleave="open = false">
                 <div class="absolute inset-0 w-full h-full overflow-hidden" v-if="item">
                     <div class="absolute inset-0 overflow-hidden transition duration-300 bg-clip-padding" :class="{ 'filter blur-lg': open }">
@@ -14,7 +14,7 @@
                             <!-- Top right -->
                         </div>
                     </div>
-                    <div v-if="open">
+                    <div v-show="open">
                         <div class="absolute inset-0 -mx-px overflow-hidden transition duration-1000 transform bg-black bg-opacity-50 rounded bg-clip-border" v-bind:class="[open ? 'opacity-100' : 'opacity-0']">
                             <a href="/">
                                 <div class="absolute inset-0 w-full h-full overflow-hidden text-left cursor-pointer">
@@ -44,6 +44,7 @@
 export default {
     props: {
         item: Object,
+        size: String,
     },
     data() {
         return {

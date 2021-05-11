@@ -34,6 +34,6 @@ mix.webpackConfig({
 mix.options({
     hmrOptions: {
         host: '10.0.0.31', // set this to the local ip address (192.168.0.**) of whatever device is running `php artisan serve`
-        port: 8000 // set this to which port `php artisan serve` is using.
+        port: 80 // set this to which port `php artisan serve` is using.
     }
 })
